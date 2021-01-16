@@ -1,0 +1,1 @@
+A simple notes taking app written in React Native for studies
