@@ -44,7 +44,7 @@ export default () => {
         </SaveButton>
       ),
     });
-  }, [status, title, body, navigation]);
+  }, [status, title, body]);
 
   const handleCloseButton = () => {
     navigation.goBack();
@@ -52,6 +52,22 @@ export default () => {
 
   const handleSaveButton = () => {
     if (title && body) {
+      if (status === 'new') {
+        dispatch({
+          type: 'ADD_NOTE',
+          payload: {title, body},
+        });
+      } else {
+        dispatch({
+          type: 'EDIT_NOTE',
+          payload: {
+            key: route.params.NoteIndex,
+            title,
+            body,
+          },
+        });
+      }
+      navigation.goBack();
     } else {
       alert('Você precisa preencher todos os campos');
     }
