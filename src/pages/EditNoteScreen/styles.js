@@ -21,3 +21,21 @@ export const BodyInput = styled.TextInput`
   font-size: 15px;
   color: #fff;
 `;
+
+export const SaveButton = styled.TouchableOpacity`
+  margin-right: 15px;
+`;
+
+export const SaveButtonImg = styled.Image`
+  width: 24px;
+  height: 24px;
+`;
+
+export const CloseButton = styled.TouchableOpacity`
+  margin-left: 15px;
+`;
+
+export const CloseButtonImg = styled.Image`
+  width: 20px;
+  height: 20px;
+`;

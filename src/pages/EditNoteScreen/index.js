@@ -2,7 +2,15 @@ import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation, useRoute} from '@react-navigation/native';
 
-import {Container, TitleInput, BodyInput} from './styles';
+import {
+  Container,
+  TitleInput,
+  BodyInput,
+  SaveButton,
+  SaveButtonImg,
+  CloseButton,
+  CloseButtonImg,
+} from './styles';
 
 export default () => {
   const navigation = useNavigation();
@@ -21,6 +29,33 @@ export default () => {
       setBody(list[route.params?.NoteIndex].body);
     }
   }, []);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: status === 'new' ? 'Nova Anotação' : 'Editar Anotação',
+      headerLeft: () => (
+        <CloseButton onPress={handleCloseButton}>
+          <CloseButtonImg source={require('../../assets/close.png')} />
+        </CloseButton>
+      ),
+      headerRight: () => (
+        <SaveButton onPress={handleSaveButton}>
+          <SaveButtonImg source={require('../../assets/save.png')} />
+        </SaveButton>
+      ),
+    });
+  }, [status, title, body, navigation]);
+
+  const handleCloseButton = () => {
+    navigation.goBack();
+  };
+
+  const handleSaveButton = () => {
+    if (title && body) {
+    } else {
+      alert('Você precisa preencher todos os campos');
+    }
+  };
 
   return (
     <Container>

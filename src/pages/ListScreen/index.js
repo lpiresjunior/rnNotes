@@ -19,7 +19,7 @@ export default () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: 'Suas anotações',
+      title: 'Suas Anotações',
       headerRight: () => (
         <AddButton onPress={() => navigation.navigate('EditNote')}>
           <AddButtonImg source={require('../../assets/more.png')} />
