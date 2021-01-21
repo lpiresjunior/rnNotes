@@ -42,7 +42,7 @@ export default () => {
           renderItem={({item, index}) => (
             <NoteItem data={item} index={index} onPress={handleNotePress} />
           )}
-          keyExtractor={({item, index}) => String(index)}
+          keyExtractor={(item, index) => String(index)}
         />
       ) : (
         <NoNotes>
