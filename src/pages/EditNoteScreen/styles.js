@@ -39,3 +39,15 @@ export const CloseButtonImg = styled.Image`
   width: 20px;
   height: 20px;
 `;
+
+export const DeleteButton = styled.TouchableOpacity`
+  height: 40px;
+  background-color: #ff3333;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const DeleteButtonText = styled.Text`
+  font-size: 14px;
+  color: #fff;
+`;

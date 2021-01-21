@@ -1,5 +1,5 @@
 const initialState = {
-  list: [{title: 'Primeira Nota', body: 'teste'}],
+  list: [{title: 'Primeira Nota', body: 'Sua primeira nota'}],
 };
 
 export default (state = initialState, action) => {
@@ -20,6 +20,10 @@ export default (state = initialState, action) => {
           body: action.payload.body,
         };
       }
+      break;
+
+    case 'DELETE_NOTE':
+      newList = newList.filter((item, index) => index !== action.payload.key);
       break;
   }
 
